@@ -1,0 +1,49 @@
+/*imports*/
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro);
+
+/*main set up*/
+body {
+  background-color: #238f33;
+  font-family: 'Source Code Pro';
+}
+
+.card {
+  border-width: 1px;
+  border-style: solid;
+  font-size: 20pt;
+  width:  3.75em;
+  height: 5.00em;
+  display: block;
+  float: left;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+#player {
+  float:left;
+  width: 100%;
+}
+#dealer {
+  float:left;
+  width: 100%;
+}
+#buttons {
+  float:left;
+}
+/*img {
+  width:110%;
+
+
+}*/
+
+.backImg {
+  background-image: url('/images/playing-card-back.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#notification {
+  float: left;
+  width: 100%;
+}
