@@ -29,12 +29,8 @@ body {
 }
 #buttons {
   float:left;
+  width: 100%;
 }
-/*img {
-  width:110%;
-
-
-}*/
 
 .backImg {
   background-image: url('/images/playing-card-back.jpg');
@@ -46,4 +42,13 @@ body {
 #notification {
   float: left;
   width: 100%;
+}
+
+.hiding {
+  display: none;
+}
+
+ul {
+  float: left;
+  list-style: none;
 }
