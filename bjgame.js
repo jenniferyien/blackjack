@@ -149,11 +149,16 @@ $(function(){
         };
 
       //Not yet in play
-      $('#Hit').attr('disabled','disabled');
-      $('#Stand').attr('disabled','disabled');
+        $('#Hit').attr('disabled','disabled');
+        $('#Stand').attr('disabled','disabled');
 
-      //Disable Hit and Stand button
+      //Disable/reable Hit and Stand button
         function disable(){
+          $('#Hit').attr('disabled','disabled');
+          $('#Stand').attr('disabled','disabled');
+        };
+
+        function reable(){
           $('#Hit').attr('disabled',false);
           $('#Stand').attr('disabled',false);
         };
@@ -171,7 +176,7 @@ $(function(){
           var dealerDeck = Dealer() + Dealer().addClass('hiding') + faceDown();
           $('p').text('Your total is ' + cardValue());
           check();
-          disable();
+          reable();
           $('.card').each(function(i,e) { $(e).html($(e).html()) });
         };
 
@@ -220,107 +225,89 @@ $(function(){
             $('.card').remove();
             $('p').text('');
             playerWin = 0;
+            currentPlay = 0;
+            currentDeal = 0;
             $('#pScore').text('Player Score: ' + playerWin);
             dealerWin = 0;
             $('#dScore').text('Dealer Score: ' + dealerWin);
             $('#deal').text('Dealer Cards');
             $('#play').text('Player Cards');
+            disable();
         });
 
       //Player Win
-      function pWin(){
-        playerWin = currentPlay + 1;
-        currentPlay = playerWin;
-      };
+        function pWin(){
+          playerWin = currentPlay + 1;
+          currentPlay = playerWin;
+        };
 
       //Dealer Win
-      function dWin(){
-        dealerWin = currentDeal + 1;
-        currentDeal = dealerWin;
-      };
+        function dWin(){
+          dealerWin = currentDeal + 1;
+          currentDeal = dealerWin;
+        };
 
       //facedown card reveal
-      function reveal(){
-        $('.card').removeClass('hiding');
-        $('.backImg').remove();
-      };
+        function reveal(){
+          $('.card').removeClass('hiding');
+          $('.backImg').remove();
+        };
 
       //score display
-      function scorDisplay(){
-        $('#deal').text('Dealers Cards: ' + dealerValue());
-        $('#play').text('Players Cards: ' + cardValue());
-      };
+        function scorDisplay(){
+          $('#deal').text('Dealers Cards: ' + dealerValue());
+          $('#play').text('Players Cards: ' + cardValue());
+        };
 
-      // check
-      function check(){
-            if(cardValue() == 21) {
-              disable();
-              pWin();
-              $('p').text('Contragulation! You got 21!');
-              scorDisplay();
-              $('#pScore').text('Player Score: ' + currentPlay);
-              reveal();
-            } else if (cardValue() > 21){
-              disable();
-              dWin();
-              reveal();
-              $('p').text('BUSTED your total is ' + cardValue());
-              scorDisplay();
-              $('#dScore').text('Dealer Score: ' + currentDeal);
-            }
+      // check wins or loses
+        function check(){
+              if(cardValue() == 21) {
+                    disable();
+                    pWin();
+                    $('p').text('Contragulation! You got 21!');
+                    scorDisplay();
+                    $('#pScore').text('Player Score: ' + currentPlay);
+                    reveal();
+              } else if (cardValue() > 21){
+                    disable();
+                    dWin();
+                    reveal();
+                    $('p').text('BUSTED your total is ' + cardValue());
+                    scorDisplay();
+                    $('#dScore').text('Dealer Score: ' + currentDeal);
+              };
           };
 
-
-
-      function dealerCheck(){
-            reveal();
-            if(dealerValue() == 21) {
-              dWin();
-              $('p').text('You Lost Dealer got 21!');
-              scorDisplay();
-              $('#dScore').text('Dealer Score: ' + currentDeal);
-            } else if (dealerValue() > 21){
-              $('p').text('You won Dealer Busted');
-              pWin();
-              scorDisplay();
-              $('#pScore').text('Player Score: ' + currentPlay);
-            } else if(dealerValue() < cardValue()){
-                $('p').text('You Won! Dealer Lost');
-                pWin();
-                scorDisplay();
-                $('#pScore').text('Player Score: ' + currentPlay);
-              } else if (dealerValue() > cardValue()){
-                $('p').text('You Lost! Dealer Won');
-                dWin();
-                scorDisplay();
-                $('#dScore').text('Dealer Score: ' + currentDeal);
-              } else if (dealerValue() === cardValue()){
-                pWin();
-                dWin();
-                scorDisplay();
-                $('p').text('Its a Tie! Your total is ' + cardValue());
-              };
+        function dealerCheck(){
               disable();
-      };
-
-      //compare check
-        // function compare(){
-        //   if(dealerValue() < cardValue()){
-        //     $('p').text('You Won! Dealer Lost');
-        //     $('.card').removeClass('hiding');
-        //     $('.backImg').remove();
-        //     $('#Hit').attr('disabled','disabled');
-        //     $('#Stand').attr('disabled','disabled');
-        //   } else {
-        //     $('p').text('You Lost! Dealer Won');
-        //     $('.card').removeClass('hiding');
-        //     $('.backImg').remove();
-        //     $('#Hit').attr('disabled','disabled');
-        //     $('#Stand').attr('disabled','disabled');
-        //   }
-        //   console.log(dealerValue());
-        // }
-
+              reveal();
+              if(dealerValue() == 21) {
+                  dWin();
+                  $('p').text('You Lost Dealer got 21!');
+                  scorDisplay();
+                  $('#dScore').text('Dealer Score: ' + currentDeal);
+              } else if (dealerValue() > 21){
+                  $('p').text('You won Dealer Busted');
+                  pWin();
+                  scorDisplay();
+                  $('#pScore').text('Player Score: ' + currentPlay);
+              } else if(dealerValue() < cardValue()){
+                  $('p').text('You Won! Dealer Lost');
+                  pWin();
+                  scorDisplay();
+                  $('#pScore').text('Player Score: ' + currentPlay);
+              } else if (dealerValue() > cardValue()){
+                  $('p').text('You Lost! Dealer Won');
+                  dWin();
+                  scorDisplay();
+                  $('#dScore').text('Dealer Score: ' + currentDeal);
+              } else if (dealerValue() === cardValue()){
+                  pWin();
+                  dWin();
+                  scorDisplay();
+                  $('p').text('Its a Tie! Your total is ' + cardValue());
+              };
+        };
 
       //reset page render
       // $('.card').each(function(i,e) { $(e).html($(e).html()) });
