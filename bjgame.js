@@ -281,6 +281,7 @@ $(function(){
             $('#deal').text("Dealer's Cards");
             $('#play').text("Player's Cards");
             disable();
+            $('p.notice').text("Let's Begin! Click 'New Game'");
             $('#Reset').attr('disabled','disabled');
             $('#resetme').trigger('play');
         });
