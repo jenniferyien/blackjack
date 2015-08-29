@@ -1,12 +1,156 @@
 /*imports*/
-@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro);
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+@import url(https://fonts.googleapis.com/css?family=Cardo);
+@import url(https://fonts.googleapis.com/css?family=Wellfleet);
 
 /*main set up*/
 body {
-  background-color: #238f33;
-  font-family: 'Source Code Pro';
+  background-color: #364065;
+  font-family: Montserrat;
+  text-align: center;
+  color: #b4edbb;
 }
 
+span {
+  font-size: 22px;
+  cursor: help;
+}
+
+p {
+  color: #b4edbb;
+}
+
+ul.scoring {
+  float: left;
+  list-style: none;
+  margin: 0;
+  margin-bottom: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+li{
+    display: inline-block;
+    margin: 0 10%;
+    margin-right: 20%;
+}
+
+.space {
+  width: 100%;
+  min-height: 100px;
+  float: left;
+}
+
+/*player section*/
+#player {
+  float:left;
+  width: 100%;
+  min-height: 215px;
+  background-color: #77b5b2;
+  border-radius: 10px;
+  margin: 1px;
+  margin-top: 5px;
+  text-align: left;
+  color: #364065;
+}
+
+#play{
+  font-family: Montserrat;
+  margin-top: 10px;
+  margin-left: 15px;
+  margin-bottom: 0;
+}
+
+/*dealer section*/
+#dealer {
+  float:left;
+  width: 100%;
+  min-height: 215px;
+  background-color: #77b5b2;
+  border-radius: 5px;
+  margin: 1px 0;
+  text-align: left;
+  color: #364065;
+}
+
+#deal{
+  margin-top: 10px;
+  margin-left: 15px;
+  margin-bottom: 0;
+  font-family: Montserrat;
+  font-size: 1.5em;
+}
+
+/*how to section */
+h3.text{
+  text-align: center;
+  font-size: 20px;
+}
+
+.playBJack{
+  position:absolute;
+  left: 9%;
+  top: 4%;
+  bottom: 8%;
+  width: 80%;
+  min-height:300px;
+  max-height: 100%;
+  background-color: black;
+  opacity: 0.8;
+  text-align: left;
+  overflow: auto;
+  padding: 2%;
+  font-family: Cardo;
+}
+
+.text{
+  color: #b6cad7;
+  text-align: left;
+}
+
+p#warn{
+  color: #b40b3c;
+}
+
+/*fixed nav and buttons*/
+.nav{
+  position: fixed;
+  background-color: #4d708a;
+  left:0;
+  bottom:0;
+  width: 100%;
+}
+
+#notification {
+  float: left;
+  width: 100%;
+  min-height: 40px;
+}
+
+.notice{
+  font-size: 1.3em;
+  margin: 8px 0;
+}
+
+#buttons {
+  float:left;
+  width: 100%;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+button {
+  margin: 0 1%;
+  background-color: #b4edbb;
+  border-radius: 5px;
+  font-family: Montserrat;
+  font-size: 12px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+/*card render*/
 .card {
   border-width: 1px;
   border-style: solid;
@@ -16,20 +160,12 @@ body {
   display: block;
   float: left;
   background-color: #fff;
-  border-radius: 5px;
-}
-
-#player {
-  float:left;
-  width: 100%;
-}
-#dealer {
-  float:left;
-  width: 100%;
-}
-#buttons {
-  float:left;
-  width: 100%;
+  border-radius: 10px;
+  margin: 10px 0;
+  margin-left: 15px;
+  padding: 1%;
+  font-family: Wellfleet;
+  box-shadow: 3px 3px;;
 }
 
 .backImg {
@@ -39,16 +175,33 @@ body {
   background-position: center;
 }
 
-#notification {
-  float: left;
-  width: 100%;
-}
-
 .hiding {
   display: none;
 }
 
-ul {
-  float: left;
-  list-style: none;
+/*media screen size change*/
+@media screen and (max-width:700px){
+  ul{
+    text-align: left;
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    margin: 0 12%;
+  }
+  .playBJack{
+    bottom: 12%;
+  }
+}
+
+@media screen and (max-width:500px){
+  ul{
+    text-align: left;
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    margin-right: 0;
+    margin: 0 5%;
+  }
 }
