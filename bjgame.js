@@ -281,6 +281,7 @@ $(function(){
             $('#play').text("Player's Cards");
             disable();
             $('#Reset').attr('disabled','disabled');
+            $('#resetGame').trigger('play');
         });
 
       //Player Win
