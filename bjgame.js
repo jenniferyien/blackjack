@@ -245,6 +245,7 @@ $(function(){
             $('p.notice').text('Your total is ' + cardValue());
             check();
             $('.card').each(function(i,e) { $(e).html($(e).html()) });
+            $('#hitme').trigger('play');
         });
 
       //If a player chooses to stay with their current cards
@@ -281,7 +282,7 @@ $(function(){
             $('#play').text("Player's Cards");
             disable();
             $('#Reset').attr('disabled','disabled');
-            $('#resetGame').trigger('play');
+            $('#resetme').trigger('play');
         });
 
       //Player Win
